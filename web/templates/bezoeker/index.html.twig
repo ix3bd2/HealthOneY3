@@ -7,14 +7,50 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/archonix/Desktop/git/HealthOneY3/web/src/Controller/BezoekerController.php'|file_link(0) }}">src/Controller/BezoekerController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/archonix/Desktop/git/HealthOneY3/web/templates/bezoeker/index.html.twig'|file_link(0) }}">templates/bezoeker/index.html.twig</a></code></li>
-    </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">
+            Sportcenter
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">sportapparaat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/registreren">registreren</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">inloggen</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+<header>
+    <div class="header-row row lead" >
+        <h1 class="display-2">Anytime<span class="text-danger">Fitness</span></h1>
+    </div>
+</header>
+<figure>
+    <img class="banner-img img-fluid" src='https://raw.githubusercontent.com/ROCMondriaanTIN/if-ao-anytime-student/master/public/img/healthone-wide.png' />
+</figure>
+<h4>Sportcenter Anytime Fitness</h4>
+            Fit en gezond zijn is geen vanzelfsprekendheid. We moeten er zelf wat voor doen. Goede, gezonde voeding is hiervoor de basis.
+            Bewegen hoort hier ook bij. Regelmatig bewegen zorgt voor een goede doorbloeding en draagt bij aan ontspanning van lichaam en geest.
+            Sporten is goed voor sterkere spieren en voor de conditie. Sporcenter HealthOne heeft verschillende sportapparaten om mee te kunnen werken aan je conditie.
+            <hr>
+            </div>
+            <footer >
+    <p class="clearfix pb-3  text-muted text-center">&copy;Afdeling software development Tinwerf 10, 2544 ED Den Haag.</p>
+</footer>
 {% endblock %}
