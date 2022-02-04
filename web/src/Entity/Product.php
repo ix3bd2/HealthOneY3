@@ -35,7 +35,7 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="productId")
      */
-    private $category;
+    private $categoryId;
 
     public function getId(): ?int
     {
@@ -80,12 +80,12 @@ class Product
 
     public function getCategory(): ?Category
     {
-        return $this->category;
+        return $this->categoryId;
     }
 
-    public function setCategory(?Category $category): self
+    public function setCategory(?Category $categoryId): self
     {
-        $this->category = $category;
+        $this->categoryId = $categoryId;
 
         return $this;
     }

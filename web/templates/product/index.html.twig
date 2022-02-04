@@ -3,37 +3,66 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/bezoeker">
+            Sportcenter
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/category">sportapparaat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/registreren">registreren</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">inloggen</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{# content #}
+    <div class="container">
+<header>
+    <div class="header-row row lead" >
+        <h1 class="display-2">Health<span class="text-danger">One</span></h1>
+    </div>
+</header>
+<figure>
+    <img class="banner-img img-fluid" src='https://raw.githubusercontent.com/ROCMondriaanTIN/if-ao-anytime-student/master/public/img/healthone-wide.png' />
+</figure>
+<div class="row gy-3 ">     <h1>Product index</h1>
+{% for product in products %}
+  <div class="col-sm-4 col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <a href="#">
+                            <img class="product-img img-responsive center-block" src={{ product.photo }}/>
+                        </a>
+                        <div class="card-title mb-3">{{ product.name }}</div>
+                    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Photo</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.photo }}</td>
-                <td>{{ product.description }}</td>
-                <td>
-                    <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
-                </td>
-            </tr>
+                </div>
+            </div>
+        
         {% else %}
             <tr>
                 <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+          
+</footer>
+
 
     <a href="{{ path('product_new') }}">Create new</a>
 {% endblock %}
