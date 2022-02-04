@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Category
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
+     */
+    private $productId;
+
+    public function __construct()
+    {
+        $this->productId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,36 @@ class Category
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProductId(): Collection
+    {
+        return $this->productId;
+    }
+
+    public function addProductId(Product $productId): self
+    {
+        if (!$this->productId->contains($productId)) {
+            $this->productId[] = $productId;
+            $productId->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductId(Product $productId): self
+    {
+        if ($this->productId->removeElement($productId)) {
+            // set the owning side to null (unless already changed)
+            if ($productId->getCategory() === $this) {
+                $productId->setCategory(null);
+            }
+        }
 
         return $this;
     }
