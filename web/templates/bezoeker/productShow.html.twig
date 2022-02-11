@@ -50,18 +50,28 @@
                         <li class="breadcrumb-item"><a href="#">products</a></li>
 
         </ol>
-    </nav>    <h1>products</h1>
-{% for product in category.productId %}
-  <div class="col-sm-4 col-md-3">
+    </nav>    <h1>productsasdas</h1>
+    <div class="col-sm-4 col-md-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <a href="{{ path('product',{'id':product.id}) }}">
+                    
                             <img class="product-img img-responsive center-block" src="{{ asset(product.photo) }}"/>
-                        </a>
                         <div class="card-title mb-3">{{ product.name }}</div>
                     </div>
 
                 </div>
+            </div>
+{% for review in reviews %}
+        <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+        
+            <div class="card p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold text-primary">{{ review.name }}</small> <small class="font-weight-bold">{{ review.description }}</small></span> </div> <small>{{ review.date|date('Y-m-d') }}</small>
+                </div>
+                
+            </div>
             </div>
         {% else %}
             <tr>
