@@ -12,7 +12,7 @@ use App\Repository\CategoryRepository;
 class BezoekerController extends AbstractController
 {
     /**
-     * @Route("/bezoeker", name="bezoeker")
+     * @Route("/", name="bezoeker")
      */
     public function index()
     {
